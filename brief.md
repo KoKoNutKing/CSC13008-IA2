@@ -1,7 +1,6 @@
 # brief.md — CSC13008 / IA#2
 
-> **Implementation prompts are DRAFT — NOT SENT.** The actual documentation setup request is recorded separately below.
-> The rubric grades the instructions **actually given** to the assistant, not a polished summary written afterwards. When you send a prompt below, preserve the exact version sent (including changes or follow-ups) in chronological order. Remove prompts that were never sent before submission. Update this file **as you work**.
+> Submission copy: actual prompts only. Unsent implementation drafts were removed during final documentation cleanup; they were never treated as executed prompts. Earlier draft versions remain recoverable in Git.
 
 ## Task context and acceptance contract
 
@@ -19,33 +18,11 @@ Non-negotiable conditions for all task prompts:
 8. Do not declare completion based solely on generated code. The student will manually run all 11 Done means rows in a browser and inspect Console and Git diffs.
 9. No secrets or personal/private data in prompts. Keep a real `AI-LOG.md` entry for every assisted part.
 
-## Prompts prepared for the assistant
-
-### Prompt A — Semantic HTML prerequisite [DRAFT — NOT SENT]
-
-> Read `README.md`, `index.html`, `check.js` (read-only), and `AGENTS.md`. Perform **Part A only** in `index.html`: replace non-semantic structural `<div>`s with the correct landmarks, headings, `<ul>/<li>` product list, real `<form>` and associated `<label>`, and real `<button>` elements. Update the card inside `<template id="card-template">` too. The sold-out Add must be a disabled button; layout-only `div`s may remain. Preserve every existing `id`, `class`, and `data-*` attribute. Do not change other starter files or add inline `onclick`. Explain how to verify `selfCheck()` returns **8/8** and Done means rows **1–3**, without claiming to have run browser tests you cannot run. Stop after Part A; do not implement B1–B4 yet.
-
-### Prompt B1 — Add to Cart [DRAFT — NOT SENT]
-
-> Read `README.md`, `AGENTS.md`, and the B1 TODOs in `app.js`. Implement **B1 only**, editing `app.js` only: one delegated click listener on `#catalogue`, identify `.add` and its parent `.card`, ignore clicks outside Add and disabled/sold-out items, increment `cart[id]` correctly, and make `renderCart()` update `#cart-count` via `textContent`. Ensure it works for products inserted by the given Load more function. Do not change the provided Load more implementation or any HTML/CSS/checks. Explain browser verification for Done means rows **4–6**. Stop and allow review/commit before B2.
-
-### Prompt B2 — Live Search [DRAFT — NOT SENT]
-
-> Read the B2 TODOs in `app.js` and `README.md`. Implement **B2 only**: case-insensitive, trimmed search on every `input` event; iterate all current `.card` elements, toggle `hidden` based on `.name`; use one `#status` message via `textContent`. For empty input restore every card and clear status; for matches show `Showing X of Y products`, where Y is 8 before Load more and 12 afterwards; for no matches include the **exact text typed**, e.g. `No products match "<img src=x onerror=alert(1)>"`, without interpreting HTML. Preserve other behavior and files. Explain tests for Done means rows **7–8**. Stop before B3.
-
-### Prompt B3 — Prevent Form Reload [DRAFT — NOT SENT]
-
-> Read the B3 TODO in `app.js` and `README.md`. Implement **B3 only**: register `submit` on the form associated with `#q` (`searchInput.form`), call `event.preventDefault()` and then `applyFilter()`. Pressing Enter after typing `cap` must keep the current URL (no `?q=cap`) and preserve cart state. Do not change other starter files or unrelated functions. Explain tests for Done means rows **9–10**. Stop before B4.
-
-### Prompt B4 — Cart Total (stretch) [DRAFT — NOT SENT]
-
-> Implement the optional B4 total in `renderCart()` without breaking B1–B3. Read each product's numeric price from the loaded `.card` element's `data-price`, multiply by the quantity in `cart`, and sum all entries, including Belt added via Load more. Write formatted ` · N đ` into `#cart-total` using `toLocaleString('vi-VN')`; keep the count in `#cart-count`. Avoid string concatenation errors. Test an example of three T-shirts = `540.000 đ`, and verify the other Done means rows remain passing. Only change `app.js`.
-
 ## Actual prompt history / follow-up corrections
 
 ### 1. 2026-10-26 — Codex (ChatGPT): documentation setup [ACTUALLY SENT]
 
-Attached reference: IA2_documentation_pack.zip at D:/Window's Things/Downloads/IA2_documentation_pack.zip. The implementation drafts above have not been sent. The student's request is preserved below:
+Attached reference: IA2_documentation_pack.zip at D:/Window's Things/Downloads/IA2_documentation_pack.zip. The student's request is preserved below:
 
 ~~~text
 You are a coding assistant working on CSC13008 — Session 4 / IA#2: Dynamic HTML.
@@ -100,9 +77,15 @@ Stop after documentation setup and wait for an explicit implementation task.
 
 Append future prompts and corrections verbatim below this entry, in the order actually sent. Move or copy the exact draft version used into this history when it is sent; never relabel an unused draft as executed.
 
-### 3. 2026-10-26 — Codex (ChatGPT): Part A only [ACTUALLY SENT]
+### 2. 2026-10-26 — Documentation readiness review [ACTUALLY SENT; restored retrospectively]
 
-The prepared Prompt A above remains an unsent draft; the exact prompt actually sent is:
+~~~text
+Check lại coi phần document này nọ đã okay chưa, bắt đầu implement được chưa
+~~~
+
+This genuine earlier request was missing from the working document and was restored from the conversation during final cleanup. It is not represented as having been logged at its original time.
+
+### 3. 2026-10-26 — Codex (ChatGPT): Part A only [ACTUALLY SENT]
 
 ~~~text
 Task: PART A ONLY — semantic HTML prerequisite. Read README.md (especially Done means rows 1–3), index.html, check.js (read-only), and AGENTS.md. Only edit index.html. Convert meaningful layout from divs to semantic HTML: header/nav/main/footer, exactly one h1, product headings h2, catalogue ul with li.card elements (including the card inside #card-template), real form/associated label for #q, and real button elements for .button/.add. The sold-out Tote bag button must be truly disabled. Not all layout-only divs need replacement.
@@ -116,8 +99,6 @@ Only index.html changed among application files. AI-LOG.md and this prompt histo
 
 ### 4. 2026-10-26 — Codex (ChatGPT): B1 only [ACTUALLY SENT]
 
-The prepared Prompt B1 remains an unsent draft. The student explicitly requested B1 below; this authorizes B1 but does not establish that earlier pending browser tests passed.
-
 ~~~text
 Task: B1 ONLY in app.js. Read its B1 TODOs, README.md (Done means 4–6), and AGENTS.md. Implement exactly ONE delegated click listener attached to #catalogue, NOT separate listeners on buttons. Only act when a click originates from/within an .add button, locate its .card via closest('.card'), read dataset.id, increment cart[id] even when initially undefined, ignore other targets and disabled/sold-out products, then renderCart(). renderCart() must update #cart-count through textContent. Existing Load more must remain unchanged; Add on the newly loaded Belt must work.
 
@@ -125,8 +106,6 @@ Preserve existing selectors and Part A markup. Do not modify style.css, check.js
 ~~~
 
 ### 5. 2026-10-26 — Codex (ChatGPT): B2 only [ACTUALLY SENT]
-
-The prepared Prompt B2 remains an unsent draft. Exact prompt used:
 
 ~~~text
 Task: B2 ONLY in app.js. Follow the B2 TODOs and README.md Done means rows 7–8. Implement applyFilter(): read input value, perform trim + case-insensitive matching on each current .card .name, hide/show cards using card.hidden, register an input event listener on #q. With an empty query, show all loaded products and clear the status text. If there are matches, set exactly "Showing X of Y products" where Y is the CURRENT card count (8 before, 12 after Load more). If no matches, set exactly 'No products match "<exact raw user input>"' (use the user's original text for the displayed message, not an HTML interpretation).
@@ -136,8 +115,6 @@ CRITICAL: write to #status ONLY with textContent, never innerHTML; typing <img s
 
 ### 6. 2026-10-26 — Codex (ChatGPT): B3 only [ACTUALLY SENT]
 
-The prepared Prompt B3 remains an unsent draft. Exact prompt used:
-
 ~~~text
 Task: B3 ONLY in app.js. The search input #q is inside a real form from Part A. Use searchInput.form and attach a submit listener. In the listener call event.preventDefault() and applyFilter(). Enter with cap must NOT navigate to ?q=cap, reload the page or reset Cart. Preserve B1/B2 and given Load more unchanged. Do not modify index.html, style.css, check.js, README.md or dependencies.
 
@@ -145,8 +122,6 @@ Show a minimal diff; tell me exactly how to verify README Done means rows 9–10
 ~~~
 
 ### 7. 2026-10-26 — Codex (ChatGPT): B4 only [ACTUALLY SENT]
-
-The prepared Prompt B4 remains an unsent draft. Exact prompt used:
 
 ~~~text
 Task: Implement stretch B4 ONLY in app.js, inside/around renderCart() as appropriate without changing B1–B3 or the provided Load more code. Sum each cart quantity multiplied by that product's price, reading data-price from its currently loaded .card and converting the dataset string with Number() before arithmetic. Display the count in #cart-count and the formatted total in #cart-total with the exact form " · 540.000 đ" using toLocaleString('vi-VN'). Products loaded by Load more, especially Belt, must be included.
@@ -156,10 +131,275 @@ Manual checks must include: 3 T-shirts -> Cart (3) · 540.000 đ; after adding B
 
 Only app.js was changed among source files. This history and AI-LOG.md were updated as expressly requested. Final audit is outside this task.
 
-## Verification contract inherited by each draft
+### 8. 2026-10-26 — Read-only submission audit [ACTUALLY SENT; restored retrospectively]
+
+~~~text
+We have completed the phases. AUDIT only; do not change source files without my approval. Read README.md Done means rows 1–11 and IA#2 rubric; inspect index.html, app.js, git log, git diff from the original starter, brief.md, AI-LOG.md and SELF_ASSESSMENT_REPORT.md. Return:
+(1) 11-row acceptance checklist with expected results and actual evidence; mark anything not personally browser-tested as UNVERIFIED, never PASS by assumption.
+(2) Scope audit: verify original README.md, style.css, check.js are identical to starter; only index.html/app.js among original starter files changed.
+(3) Prompt audit: brief.md holds prompts actually sent, chronologically, including follow-up fix prompts.
+(4) AI-LOG audit: distinct entries for documentation tasks (if assisted), A, B1, B2, B3, B4; each has Tool / Asked for / Kept / Changed / Rejected / By hand and records REAL decisions and failures/row numbers; do not fabricate rejections or human coding.
+(5) Commit audit: initial untouched starter plus separate A/B1/B2/B3/B4 commits. Show actual hashes.
+(6) Proposed evidence-backed SELF_ASSESSMENT_REPORT.md matching the five rubric weights and containing What I did not manage / What I would do differently. Do not automatically claim 100; identify pending evidence and ask me to confirm before any scores are finalized.
+(7) ZIP packaging checklist, ensuring .git is included and name uses <StudentID>_<claimed-total>.zip. AGENTS.md is optional development guidance and should be excluded from the final archive if unnecessary to comply with strict scope.
+~~~
+
+### 9. 2026-10-26 — Final submission report request [ACTUALLY SENT as Pasted text.txt; recorded retrospectively]
+
+~~~text
+You are conducting the FINAL SUBMISSION AUDIT for CSC13008 — IA#2: Dynamic HTML — Make the Catalogue Work.
+
+The implementation is believed to be complete. Your task is to inspect the repository, evaluate the work against the official IA#2 rubric, and fill in `SELF_ASSESSMENT_REPORT.md` accurately.
+
+**Goal:** Maximize the justified self-assessment score through verifiable evidence, without fabricating tests, Git history, AI usage, or student contributions.
+
+## 1. Read the project evidence
+
+Inspect the following:
+
+- `README.md` — requirements and the 11-row Done means table.
+- `index.html` — final HTML implementation.
+- `app.js` — final JavaScript implementation.
+- `check.js` — read-only semantic self-check.
+- `style.css` — verify it is unchanged.
+- `brief.md` — actual prompts and requirements.
+- `AI-LOG.md` — declared AI collaboration.
+- `AGENTS.md` — development constraints, if present.
+- `SELF_ASSESSMENT_REPORT.md` — existing report/template.
+- Git commit history and diffs.
+
+Treat the official IA#2 rubric as the grading authority. Do not reuse the IA#1 scoring criteria from the generic self-assessment example.
+
+## 2. Audit the five grading criteria
+
+### Criterion 1 — Behaviour (45 points)
+
+Verify Part A has passed `selfCheck()` 8/8.
+
+Evaluate all 11 rows of the README Done means table, including:
+
+- Semantic HTML, accessibility and keyboard interactions.
+- B1: Delegated Add to Cart with exactly one click listener on the catalogue list.
+- Correct cart quantity updates.
+- Sold-out products cannot be added.
+- Load more followed by Add on Belt works.
+- B2: Live search is case-insensitive.
+- Clearing search restores the product list and appropriate status.
+- User-controlled text is inserted safely using `textContent`, not executable HTML.
+- The HTML injection test `<img src=x onerror=alert(1)>` runs no JavaScript.
+- B3: Submitting search with Enter does not reload the page or reset cart state.
+- B4: Cart totals are calculated correctly, including products loaded dynamically.
+- No red JavaScript errors appear in the browser console.
+
+Use browser-based interaction tests where available.
+
+Do not mark browser tests as PASSED based solely on reading source code. If browser execution is unavailable, mark them UNVERIFIED and request my manual results.
+
+Assign a score out of 45 according to the rubric:
+- 40–45: All Done means tests pass, including B4.
+- 30–39: B1–B3 pass but B4 is missing or incorrect.
+- 15–29: One of B1–B3 fails.
+- 0–14: Two or more fail, or an error occurs on load.
+
+### Criterion 2 — Scope (10 points)
+
+Inspect the Git history to identify the first untouched starter commit.
+
+Run the equivalent of:
+
+`git log --oneline --reverse`
+
+`git diff --name-status <starter-commit> HEAD -- README.md index.html app.js style.css check.js`
+
+Verify:
+- Only `index.html` and `app.js` were modified among the original starter files.
+- `style.css` is unchanged.
+- `check.js` is unchanged.
+- The original `README.md` is unchanged.
+- The original starter commit exists.
+
+Distinguish newly added assignment documentation from modifications to original starter files.
+
+Assign a score out of 10 using the official rubric.
+
+### Criterion 3 — Brief (15 points)
+
+Inspect `brief.md`.
+
+Verify:
+- It contains the prompts actually sent to AI, in chronological order.
+- It specifies constraints on IDs, classes and allowed files.
+- It prohibits editing `style.css` and `check.js`.
+- It requires event delegation.
+- It requires safe use of `textContent`.
+- It prevents form reload.
+- It defines acceptance testing through the Done means table.
+- It documents follow-up prompts where applicable.
+
+Identify draft prompts that remain marked NOT SENT or SEND WHEN READY.
+
+Do not silently claim those prompts were actually submitted. Ask for confirmation if necessary.
+
+Assign a justified score out of 15.
+
+### Criterion 4 — AI-LOG.md (20 points)
+
+Inspect every AI-LOG entry.
+
+Verify that at least B1, B2 and B3 have separate entries if AI was used on those tasks.
+
+Each entry must have:
+- Tool
+- Asked for
+- Kept
+- Changed
+- Rejected
+- By hand
+
+Check consistency between the log, prompts, code changes and Git history.
+
+Pay particular attention to Changed and Rejected.
+
+Check whether each entry records:
+- What the AI contributed.
+- What I accepted.
+- What I modified or rejected.
+- Which relevant tests were performed.
+- Which decisions I personally made.
+
+Do not invent rejected proposals, failed tests, human-written code or revisions.
+
+If nothing went wrong, accept an honest "None" supported by specific tests.
+
+Assign a justified score out of 20.
+
+### Criterion 5 — Commit History (10 points)
+
+Inspect the actual Git history.
+
+Verify:
+- The first commit contains the untouched starter.
+- There is a separate commit for Part A.
+- There is a separate commit for B1.
+- There is a separate commit for B2.
+- There is a separate commit for B3.
+- There is a separate commit for B4, if implemented.
+- Commit messages clearly describe the changes.
+- The history is consistent with the AI-LOG.
+
+Record the relevant real commit hashes.
+
+Assign a justified score out of 10.
+
+## 3. Generate the final report
+
+Update `SELF_ASSESSMENT_REPORT.md` using this format:
+
+# Self-assessment — IA#2
+
+Submitted by: [Actual Student ID] — [Actual Full Name]
+
+Total I claim: [CALCULATED TOTAL] / 100
+
+| Criterion | Max | I claim | Evidence |
+|---|---:|---:|---|
+| Behaviour (B1–B4) | 45 | ... | ... |
+| Scope | 10 | ... | ... |
+| Brief | 15 | ... | ... |
+| AI-LOG.md | 20 | ... | ... |
+| Commit history | 10 | ... | ... |
+| **Total** | **100** | **...** | |
+
+## What I did not manage
+
+Describe any unfinished features, unverified tests, imperfect documentation, missing evidence or known limitations honestly. If everything passed, state what was verified and avoid inventing limitations.
+
+## What I would do differently
+
+Provide a short, specific reflection grounded in the actual development workflow, testing process, AI collaboration and Git history. Avoid generic filler.
+
+## 4. Evidence rules
+
+Every claimed score must have concrete, verifiable evidence.
+
+Good evidence:
+- A specific source file and function.
+- An exact README Done means row and its observed test result.
+- A verified selfCheck result.
+- An actual Git commit hash.
+- A specific section of brief.md or AI-LOG.md.
+
+Bad evidence:
+- "Everything works."
+- "AI implemented it successfully."
+- "All requirements completed." without test results.
+
+Never claim tests passed if they were not executed or personally confirmed.
+
+If the student ID or full name is unavailable, preserve placeholders and ask me to fill them in. Do not invent personal information.
+
+## 5. Output and restrictions
+
+First, present an audit summary showing:
+- Each criterion's maximum and proposed score.
+- Evidence supporting that score.
+- Any missing or unverified evidence.
+- The total proposed score.
+
+Then update `SELF_ASSESSMENT_REPORT.md` with confirmed findings.
+
+Only modify `SELF_ASSESSMENT_REPORT.md`.
+
+Do not modify application code, Git history, the rubric, or other documents.
+
+If missing evidence could materially change the score, identify exactly what I must test or confirm rather than fabricating a result.
+
+Do not create the submission ZIP yet.
+
+Finally, recommend the correct ZIP filename:
+`<StudentID>_<total>.zip`
+
+Remember: the total in the filename must equal the total claimed in the report.
+
+Start the audit now.
+~~~
+
+### 10. 2026-10-26 — Student replies during final audit [ACTUALLY SENT]
+
+Reply to the identity/AI-log/draft-label question, verbatim:
+
+~~~text
+24127044 Lê Nguyễn Quốc Học, các prompt đánh z là đúng z thiệt
+~~~
+
+Reply to the browser-results question, verbatim:
+
+~~~text
+sao bị chặn nhỉ, tôi tự test thấy okay nhưng muốn bạn tự test lại
+~~~
+
+### 11. 2026-10-26 — Clarification about pending score [ACTUALLY SENT]
+
+~~~text
+sao pending vậy. Đang thiếu gì à
+~~~
+
+### 12. 2026-10-26 — Confirm passed code and finalize documentation [ACTUALLY SENT]
+
+~~~text
+okay chỉnh lại hết cho tôi, code tôi đã pass rồi á
+~~~
+
+This reply followed an explicit checklist covering selfCheck, Part A comparison/focus, B1–B4, injection safety, no reload and Console errors. It is recorded as student-confirmed passing results, not independent AI browser execution. The current implementation is accepted for documentation finalization. The student did not describe specific manual code changes or rejected AI proposals; none are invented.
+
+## Verification contract for the recorded implementation tasks
 
 Each phase prompt inherits every constraint above. Before editing, read the relevant app.js TODO comments exactly as supplied. Part A: capture the before screenshot before editing, then compare after (row 2); use proper native button types and disabled state. B1: also verify clicks on card text and empty catalogue space do nothing. B2: retain raw input separately from the trimmed lowercase match query; test whitespace-only input, 8 cards initially, 12 after Load more, and Load more during an active filter. Do not cache only the original cards.
 
 B4 has no dedicated Done means row: add explicit arithmetic checks to regression of rows 1–11. Three T-shirts must yield Cart (3) · 540.000 đ; then loaded Belt must yield Cart (4) · 680.000 đ. Verify zero, repeated quantities and no total/count change from sold-out Add. Use textContent for the total as well.
 
 After every phase inspect Console (row 10), review source scope (row 11), report actual versus pending checks, update the task log and actual prompt history, and keep a separate phase commit after verification. A final pass must cover all 11 rows. Disclose documentation additions separately when reviewing row 11. Stop before the next phase until explicitly tasked with it.
+
+## Final history note
+
+The earlier review and audit requests were restored from the available conversation on 2026-10-26. No application-fix prompt was sent and no application failure was reported in this conversation. Historical pending statements describe their original phase time; final student confirmation is recorded in entry 12 and the self-assessment report. This cleanup changes documentation only, without altering source or Git history.
