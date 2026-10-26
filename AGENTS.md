@@ -42,7 +42,7 @@ After each part, report: changed source files; what changed; which Done means ro
 - Preserve the untouched starter as the first commit; then have a separate commit for Part A, B1, B2, B3 and B4 if completed.
 - `git diff <starter-commit> -- index.html app.js style.css check.js README.md` must show **no changes** to `style.css`, `check.js`, or `README.md`.
 - Required documents in the submitted root: `brief.md`, `AI-LOG.md`, `SELF_ASSESSMENT_REPORT.md`.
-- `AGENTS.md` is a **voluntary development instruction file**, not listed as a required submission artifact. The rubric's strict scope wording makes it prudent to check whether extra files are permitted before including it in the final ZIP.
+- `AGENTS.md` is a development instruction file expressly requested by the student. README.md does not list it among required submission documents; the supplied pack contains no detailed rubric establishing whether extra documentation is restricted. Check the official hand-in instructions when packaging, without treating this as an implementation blocker.
 - Submit the session folder including its hidden `.git` directory, with filename `<StudentID>_<self-assessed-total>.zip`. The self-assessed total must match the sum of the five criterion rows and be supported by evidence.
 - Never supply real credentials, secrets, personal customer data or classmates' work to an assistant.
 

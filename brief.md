@@ -100,6 +100,20 @@ Stop after documentation setup and wait for an explicit implementation task.
 
 Append future prompts and corrections verbatim below this entry, in the order actually sent. Move or copy the exact draft version used into this history when it is sent; never relabel an unused draft as executed.
 
+### 3. 2026-10-26 — Codex (ChatGPT): Part A only [ACTUALLY SENT]
+
+The prepared Prompt A above remains an unsent draft; the exact prompt actually sent is:
+
+~~~text
+Task: PART A ONLY — semantic HTML prerequisite. Read README.md (especially Done means rows 1–3), index.html, check.js (read-only), and AGENTS.md. Only edit index.html. Convert meaningful layout from divs to semantic HTML: header/nav/main/footer, exactly one h1, product headings h2, catalogue ul with li.card elements (including the card inside #card-template), real form/associated label for #q, and real button elements for .button/.add. The sold-out Tote bag button must be truly disabled. Not all layout-only divs need replacement.
+
+Hard rules: preserve EVERY existing id, class and data-* attribute. Do not edit style.css, check.js, README.md or app.js. Do not add libraries, inline onclick handlers, or unrelated features. The visual appearance must remain unchanged.
+
+After editing, show me the diff and map changes to the eight selfCheck tests. Only claim tests actually run; give manual steps for selfCheck() -> 8/8, before/after screenshot and Tab/Enter focus verification (Done means 1–3). Do not proceed to B1 until I confirm the results. Prepare an honest Part A AI-LOG entry for my review, and keep the exact task prompt in brief.md.
+~~~
+
+Only index.html changed among application files. AI-LOG.md and this prompt history were updated as explicitly requested. Browser results and student acceptance are pending. Do not start B1 until the student confirms Part A results.
+
 ## Verification contract inherited by each draft
 
 Each phase prompt inherits every constraint above. Before editing, read the relevant app.js TODO comments exactly as supplied. Part A: capture the before screenshot before editing, then compare after (row 2); use proper native button types and disabled state. B1: also verify clicks on card text and empty catalogue space do nothing. B2: retain raw input separately from the trimmed lowercase match query; test whitespace-only input, 8 cards initially, 12 after Load more, and Load more during an active filter. Do not cache only the original cards.
