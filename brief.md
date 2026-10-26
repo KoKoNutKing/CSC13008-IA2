@@ -114,6 +114,16 @@ After editing, show me the diff and map changes to the eight selfCheck tests. On
 
 Only index.html changed among application files. AI-LOG.md and this prompt history were updated as explicitly requested. Browser results and student acceptance are pending. Do not start B1 until the student confirms Part A results.
 
+### 4. 2026-10-26 — Codex (ChatGPT): B1 only [ACTUALLY SENT]
+
+The prepared Prompt B1 remains an unsent draft. The student explicitly requested B1 below; this authorizes B1 but does not establish that earlier pending browser tests passed.
+
+~~~text
+Task: B1 ONLY in app.js. Read its B1 TODOs, README.md (Done means 4–6), and AGENTS.md. Implement exactly ONE delegated click listener attached to #catalogue, NOT separate listeners on buttons. Only act when a click originates from/within an .add button, locate its .card via closest('.card'), read dataset.id, increment cart[id] even when initially undefined, ignore other targets and disabled/sold-out products, then renderCart(). renderCart() must update #cart-count through textContent. Existing Load more must remain unchanged; Add on the newly loaded Belt must work.
+
+Preserve existing selectors and Part A markup. Do not modify style.css, check.js, README.md, HTML, loadMore(), moreProducts, or add dependencies. Do not implement B2, B3 or B4 yet. Show a focused diff and a specific manual test plan for Done means 4, 5, 6, including expected Cart (2) after two T-shirts and sold-out Tote bag. Explain the event delegation and why it handles inserted cards. Report real tests vs tests I still need to run. Draft a truthful AI-LOG entry for my confirmation and keep this actual prompt in brief.md.
+~~~
+
 ## Verification contract inherited by each draft
 
 Each phase prompt inherits every constraint above. Before editing, read the relevant app.js TODO comments exactly as supplied. Part A: capture the before screenshot before editing, then compare after (row 2); use proper native button types and disabled state. B1: also verify clicks on card text and empty catalogue space do nothing. B2: retain raw input separately from the trimmed lowercase match query; test whitespace-only input, 8 cards initially, 12 after Load more, and Load more during an active filter. Do not cache only the original cards.
