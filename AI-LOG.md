@@ -48,6 +48,19 @@ Actually run by AI: node --check app.js; Node standard-library VM/assert checks 
 
 Not run: real browser Done means rows 4–6, native disabled behavior, keyboard Enter or browser Console inspection. DOM stubs do not establish browser behavior. Manual plan: reload; T-shirt Add twice then attempt Tote Add => Cart (2); Tab to an enabled Add and Enter once => Cart (3); Load more then Belt Add once => Cart (4). Also click product text or blank catalogue space and confirm the count stays unchanged. Record actual outcomes before claiming success. Prior Part A browser results remain unverified in this log. B2, B3 and B4 remain unimplemented; no B1 commit was created. Stop after B1.
 
+## 2026-10-26 — B2: live product search [FOR STUDENT REVIEW]
+
+- Tool: Codex (ChatGPT)
+- Asked for: Implement B2 only: trimmed case-insensitive input filtering on all current cards, hidden visibility, current 8/12 denominator and exact raw no-match text through textContent only; preserve B1 and Load more, leave B3/B4 untouched, show diff/manual tests and record the exact prompt.
+- Kept: [Pending student review of applyFilter(), the input listener, and actual browser outcomes.]
+- Changed: AI replaced the B2 TODO body with raw/normalized query handling, a fresh catalogue card query each call, hidden toggling and a match count; status uses only textContent with the specified empty/match/no-match strings. AI registered one input listener and recorded this task in brief.md and AI-LOG.md. [Add actual student revisions and reasons if any.]
+- Rejected: [Pending student review; no rejected suggestions or AI errors are asserted.]
+- By hand: [Pending student input; no manual work or browser tests are asserted.]
+
+Actually run by AI: node --check app.js and Node VM/assert execution of actual app.js with DOM stubs. Checked scarf/SCARF/trimmed mixed case, empty/whitespace reset, initial denominator 8, actual unchanged loadMore() reapplying an active belt query with denominator 12, scarf/SCARF after loading, clear restoring all 12 cards, exact raw no-match text including surrounding spaces and the HTML-like query. A throwing innerHTML setter and alert stub detected no unsafe writes or alert calls during these tests. Compared source sections against HEAD: B1/renderCart unchanged and B3-through-end (including all given Load more code) unchanged. Byte comparisons confirmed index.html, README.md, style.css and check.js unchanged. These are stub-based checks, not browser HTML execution or rendering checks.
+
+Manual checks pending: before loading, scarf => one card and Showing 1 of 8 products. Click Load more; scarf and SCARF each => one card and Showing 1 of 12 products. Clear => all 12 cards and empty status. Type <img src=x onerror=alert(1)> => no cards; exact status No products match "<img src=x onerror=alert(1)>"; no image or alert. Also check whitespace-only reset and Load more during an active belt query. Inspect Console. Real browser Done means rows 7–8 are not claimed passed. B3/B4 are unimplemented; Enter/Search can still submit/reload. No B2 commit was created. Stop after B2.
+
 <!-- Add a NEW entry as soon as each task happens. Copy the exact structure below.
 
 ## YYYY-MM-DD — Part A: semantic HTML

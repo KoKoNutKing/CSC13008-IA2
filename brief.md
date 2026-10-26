@@ -124,6 +124,16 @@ Task: B1 ONLY in app.js. Read its B1 TODOs, README.md (Done means 4–6), and AG
 Preserve existing selectors and Part A markup. Do not modify style.css, check.js, README.md, HTML, loadMore(), moreProducts, or add dependencies. Do not implement B2, B3 or B4 yet. Show a focused diff and a specific manual test plan for Done means 4, 5, 6, including expected Cart (2) after two T-shirts and sold-out Tote bag. Explain the event delegation and why it handles inserted cards. Report real tests vs tests I still need to run. Draft a truthful AI-LOG entry for my confirmation and keep this actual prompt in brief.md.
 ~~~
 
+### 5. 2026-10-26 — Codex (ChatGPT): B2 only [ACTUALLY SENT]
+
+The prepared Prompt B2 remains an unsent draft. Exact prompt used:
+
+~~~text
+Task: B2 ONLY in app.js. Follow the B2 TODOs and README.md Done means rows 7–8. Implement applyFilter(): read input value, perform trim + case-insensitive matching on each current .card .name, hide/show cards using card.hidden, register an input event listener on #q. With an empty query, show all loaded products and clear the status text. If there are matches, set exactly "Showing X of Y products" where Y is the CURRENT card count (8 before, 12 after Load more). If no matches, set exactly 'No products match "<exact raw user input>"' (use the user's original text for the displayed message, not an HTML interpretation).
+
+CRITICAL: write to #status ONLY with textContent, never innerHTML; typing <img src=x onerror=alert(1)> must not create HTML or run any alert. Keep the existing Load more logic and B1 unchanged. Do not edit other starter files and do not implement B3/B4. Show the diff, list manual tests (scarf / SCARF / clear / injected HTML string), specify expected results, and draft an accurate AI-LOG entry for my review. Record the exact prompt in brief.md.
+~~~
+
 ## Verification contract inherited by each draft
 
 Each phase prompt inherits every constraint above. Before editing, read the relevant app.js TODO comments exactly as supplied. Part A: capture the before screenshot before editing, then compare after (row 2); use proper native button types and disabled state. B1: also verify clicks on card text and empty catalogue space do nothing. B2: retain raw input separately from the trimmed lowercase match query; test whitespace-only input, 8 cards initially, 12 after Load more, and Load more during an active filter. Do not cache only the original cards.
