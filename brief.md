@@ -134,6 +134,16 @@ Task: B2 ONLY in app.js. Follow the B2 TODOs and README.md Done means rows 7–8
 CRITICAL: write to #status ONLY with textContent, never innerHTML; typing <img src=x onerror=alert(1)> must not create HTML or run any alert. Keep the existing Load more logic and B1 unchanged. Do not edit other starter files and do not implement B3/B4. Show the diff, list manual tests (scarf / SCARF / clear / injected HTML string), specify expected results, and draft an accurate AI-LOG entry for my review. Record the exact prompt in brief.md.
 ~~~
 
+### 6. 2026-10-26 — Codex (ChatGPT): B3 only [ACTUALLY SENT]
+
+The prepared Prompt B3 remains an unsent draft. Exact prompt used:
+
+~~~text
+Task: B3 ONLY in app.js. The search input #q is inside a real form from Part A. Use searchInput.form and attach a submit listener. In the listener call event.preventDefault() and applyFilter(). Enter with cap must NOT navigate to ?q=cap, reload the page or reset Cart. Preserve B1/B2 and given Load more unchanged. Do not modify index.html, style.css, check.js, README.md or dependencies.
+
+Show a minimal diff; tell me exactly how to verify README Done means rows 9–10 and how to detect a reload/URL change. Report actual vs pending tests; draft an honest AI-LOG entry for my review and preserve the exact prompt in brief.md. Stop after B3.
+~~~
+
 ## Verification contract inherited by each draft
 
 Each phase prompt inherits every constraint above. Before editing, read the relevant app.js TODO comments exactly as supplied. Part A: capture the before screenshot before editing, then compare after (row 2); use proper native button types and disabled state. B1: also verify clicks on card text and empty catalogue space do nothing. B2: retain raw input separately from the trimmed lowercase match query; test whitespace-only input, 8 cards initially, 12 after Load more, and Load more during an active filter. Do not cache only the original cards.

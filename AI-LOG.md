@@ -61,6 +61,19 @@ Actually run by AI: node --check app.js and Node VM/assert execution of actual a
 
 Manual checks pending: before loading, scarf => one card and Showing 1 of 8 products. Click Load more; scarf and SCARF each => one card and Showing 1 of 12 products. Clear => all 12 cards and empty status. Type <img src=x onerror=alert(1)> => no cards; exact status No products match "<img src=x onerror=alert(1)>"; no image or alert. Also check whitespace-only reset and Load more during an active belt query. Inspect Console. Real browser Done means rows 7–8 are not claimed passed. B3/B4 are unimplemented; Enter/Search can still submit/reload. No B2 commit was created. Stop after B2.
 
+## 2026-10-26 — B3: prevent search form reload [FOR STUDENT REVIEW]
+
+- Tool: Codex (ChatGPT)
+- Asked for: Implement B3 only using searchInput.form's submit listener, preventDefault() then applyFilter(), preserve B1/B2 and Load more, provide a minimal diff and rows 9–10 verification steps, and record this exact prompt and review entry.
+- Kept: [Pending student review of the submit handler and actual browser results.]
+- Changed: AI replaced only the B3 TODO in app.js with a submit listener calling event.preventDefault() then applyFilter(). AI updated this log and brief.md as requested. [Record any actual student revisions and reasons after review.]
+- Rejected: [Pending student review; no student rejections or AI mistakes are asserted.]
+- By hand: [Pending student input; no manual browser tests or human edits are asserted.]
+
+Actually run by AI: node --check app.js; Node VM/assert checks with DOM stubs executing actual app.js. Confirmed exactly one submit listener attached through searchInput.form, preventDefault called before actual filtering, cap matching and nonmatching visibility, unchanged cart object quantity and displayed count. Exact source comparison confirmed only the B3 TODO replacement, preserving all B1/B2/B4 and given Load more code. Byte comparisons confirmed index.html, style.css, check.js and README.md unchanged from HEAD. This does not simulate native navigation or prove no browser reload.
+
+Manual rows 9–10 pending: reload once, add two T-shirts (Cart (2)), record the current URL, and in Console set window.__b3Probe = {url: location.href, timeOrigin: performance.timeOrigin}. Type cap in the search input and press Enter. Expected: unchanged URL (no new ?q=cap), Cart (2), Cap filter retained. In Console, window.__b3Probe must still exist, location.href must equal window.__b3Probe.url, and performance.timeOrigin must equal window.__b3Probe.timeOrigin; a full reload clears the custom window property. Repeat with the Search button. Keep Console open and inspect for red errors during interactions (row 10). No browser result is claimed. B4 remains unimplemented. No B3 commit was created. Stop after B3.
+
 <!-- Add a NEW entry as soon as each task happens. Copy the exact structure below.
 
 ## YYYY-MM-DD — Part A: semantic HTML
