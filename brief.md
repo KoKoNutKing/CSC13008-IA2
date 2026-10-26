@@ -144,6 +144,18 @@ Task: B3 ONLY in app.js. The search input #q is inside a real form from Part A. 
 Show a minimal diff; tell me exactly how to verify README Done means rows 9–10 and how to detect a reload/URL change. Report actual vs pending tests; draft an honest AI-LOG entry for my review and preserve the exact prompt in brief.md. Stop after B3.
 ~~~
 
+### 7. 2026-10-26 — Codex (ChatGPT): B4 only [ACTUALLY SENT]
+
+The prepared Prompt B4 remains an unsent draft. Exact prompt used:
+
+~~~text
+Task: Implement stretch B4 ONLY in app.js, inside/around renderCart() as appropriate without changing B1–B3 or the provided Load more code. Sum each cart quantity multiplied by that product's price, reading data-price from its currently loaded .card and converting the dataset string with Number() before arithmetic. Display the count in #cart-count and the formatted total in #cart-total with the exact form " · 540.000 đ" using toLocaleString('vi-VN'). Products loaded by Load more, especially Belt, must be included.
+
+Manual checks must include: 3 T-shirts -> Cart (3) · 540.000 đ; after adding Belt once -> Cart (4) · 680.000 đ; Sold-out Tote bag does not affect count or total. Avoid duplicated listeners. Touch app.js only; show focused diff, state what was actually checked vs pending, provide honest AI-LOG entry draft and preserve this prompt in brief.md. Stop before final audit.
+~~~
+
+Only app.js was changed among source files. This history and AI-LOG.md were updated as expressly requested. Final audit is outside this task.
+
 ## Verification contract inherited by each draft
 
 Each phase prompt inherits every constraint above. Before editing, read the relevant app.js TODO comments exactly as supplied. Part A: capture the before screenshot before editing, then compare after (row 2); use proper native button types and disabled state. B1: also verify clicks on card text and empty catalogue space do nothing. B2: retain raw input separately from the trimmed lowercase match query; test whitespace-only input, 8 cards initially, 12 after Load more, and Load more during an active filter. Do not cache only the original cards.

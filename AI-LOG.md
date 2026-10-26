@@ -74,6 +74,19 @@ Actually run by AI: node --check app.js; Node VM/assert checks with DOM stubs ex
 
 Manual rows 9–10 pending: reload once, add two T-shirts (Cart (2)), record the current URL, and in Console set window.__b3Probe = {url: location.href, timeOrigin: performance.timeOrigin}. Type cap in the search input and press Enter. Expected: unchanged URL (no new ?q=cap), Cart (2), Cap filter retained. In Console, window.__b3Probe must still exist, location.href must equal window.__b3Probe.url, and performance.timeOrigin must equal window.__b3Probe.timeOrigin; a full reload clears the custom window property. Repeat with the Search button. Keep Console open and inspect for red errors during interactions (row 10). No browser result is claimed. B4 remains unimplemented. No B3 commit was created. Stop after B3.
 
+## 2026-10-26 — B4: cart total [FOR STUDENT REVIEW]
+
+- Tool: Codex (ChatGPT)
+- Asked for: Implement B4 only around renderCart(), multiply cart quantities by Number(card.dataset.price) from currently loaded cards, display vi-VN total including loaded Belt, preserve B1–B3 and Load more, show focused diff and actual/pending checks, and record the exact prompt. Stop before final audit.
+- Kept: [Pending student confirmation of the total calculation, formatting and browser results.]
+- Changed: AI added a loop over currently loaded catalogue cards inside renderCart(), numeric price conversion and quantity multiplication, and textContent total formatting with the exact leading space/middle dot/currency suffix. The existing count calculation remains unchanged. An initial renderCart() call displays Cart (0) · 0 đ before adding products. AI recorded the exact task and this review draft. [Add actual student revisions and reasons after review.]
+- Rejected: [Pending student review; no student rejection or AI mistake is asserted.]
+- By hand: [Pending student input; no human edits or manual browser tests are asserted.]
+
+Actually run by AI: node --check app.js and Node VM/assert execution of actual app.js using DOM stubs. Confirmed startup 0 đ; three T-shirt clicks => count 3 and exact total ' · 540.000 đ'; actual unchanged loadMore() then Belt click => count 4 and ' · 680.000 đ'; disabled Tote attempts before/after loading leave count/total unchanged; hidden Belt still contributes to total; another Belt => count 5 and ' · 820.000 đ'. Exactly one catalogue click listener remained. Source comparisons confirmed no changes outside renderCart()/its initial invocation, including B1 listener, B2, B3 and provided Load more. Byte comparisons confirmed index.html, style.css, check.js and README.md unchanged from HEAD.
+
+Pending browser checks: reload => Cart (0) · 0 đ; add T-shirt three times => Cart (3) · 540.000 đ; Load more then add Belt once => Cart (4) · 680.000 đ; attempt sold-out Tote => still Cart (4) · 680.000 đ. Confirm Console has no red errors. Node DOM stubs do not establish browser rendering or real interaction results. No final audit or score claim was performed, and no B4 commit was created. Stop before final audit.
+
 <!-- Add a NEW entry as soon as each task happens. Copy the exact structure below.
 
 ## YYYY-MM-DD — Part A: semantic HTML
